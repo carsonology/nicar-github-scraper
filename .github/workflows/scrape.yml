@@ -16,7 +16,7 @@ jobs:
     - run: pip install notebook requests bs4
     
     - name: Run scraper
-      run: jupyter execute scraper.ipynb
+      run: jupyter execute x.ipynb
     
 #    add & commit from a library to handle the error for data that has no changes
     - name: Add and commit
