@@ -1,0 +1,22 @@
+name: Scrape
+
+on:
+  schedule:
+    - cron: "0 8 * * *" # 8 a.m. every day UTC
+  workflow_dispatch:
+
+jobs:
+  scrape:
+#   what type of machine to run on 
+    runs-on: ubuntu-latest
+    steps:
+#     tell it what files to copy to the virtual computer
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+#         install relevant libraries
+    - run: pip install notebook requests bs4
+#     actually run the script
+    - name: Run scraper
+      run: jupyter execute scraper.ipynb
